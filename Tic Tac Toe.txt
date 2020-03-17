@@ -1,0 +1,15 @@
+Tic Tac Toe
+
+Two players will take turns choosing a spot from a 3x3 grid. 
+Player 1 goes first and chooses a spot.
+    That spot is placed with an 'X'
+Second player goes next and chooses a spot.
+    That spot is placed with an '0'
+It will loop until one player gets 3 in a row
+
+1. Create a window
+    - Create a panel to have buttons to be added to panel.
+2. Make a 3x3 Gameboard
+    - Gameboard has to look like tic tac toe game board
+        - Print gameboard onto the panel
+    - All 9 spots has to be buttons that when clicked, has option to choose if its an 'X' or 'O'

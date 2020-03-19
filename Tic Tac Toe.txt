@@ -7,9 +7,15 @@ Second player goes next and chooses a spot.
     That spot is placed with an '0'
 It will loop until one player gets 3 in a row
 
-1. Create a window
-    - Create a panel to have buttons to be added to panel.
-2. Make a 3x3 Gameboard
+1. Make a 3x3 Gameboard
     - Gameboard has to look like tic tac toe game board
-        - Print gameboard onto the panel
-    - All 9 spots has to be buttons that when clicked, has option to choose if its an 'X' or 'O'
+2. Create two players 
+    - Player one goes first and is assigned as the 'X'
+    - Player two goes second and is assigned to the 'O'
+3. Player 1 chooses a spot to put the 'X' by asking for user input 1-9
+    - Create a method for when player inputs a number 1-9, it changes the char to 'X'
+4. Player 2 chooses a spot to put the 'O' by asking for user input 1-9
+    - Same method can be used as in part 3
+5. Steps 3-4 needs to be repeated until we have a winner or all empty spaces are filled
+    - Loop steps 3 and 4 and add a check to make sure spots havent been taken
+        

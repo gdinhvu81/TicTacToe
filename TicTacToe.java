@@ -1,30 +1,66 @@
-import javax.swing.*;
+import java.util.Scanner;
 
-class TicTacToe extends JFrame{
-    // Creates a panel object to add to the window
-    JPanel panel = new JPanel();
-
+class TicTacToe{
     // Create gameboard
-    public static String[][] gameBoard = {{" ", "|", " ", "|", " "},
-                            {"-", "+", "-", "+", "-"},
-                            {" ", "|", " ", "|", " "},
-                            {"-", "+", "-", "+", "-"},
-                            {" ", "|", " ", "|", " "}};     
-
-    // Constructor for the game
-    public TicTacToe(){
-        super("Tic Tac Toe Game!");
-        setSize(300,300);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
-        add(panel);
-
-
-
-    }
+    public static char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
+                                        {'-', '+', '-', '+', '-'},
+                                        {' ', '|', ' ', '|', ' '},
+                                        {'-', '+', '-', '+', '-'},
+                                        {' ', '|', ' ', '|', ' '}};  
     public static void main(String[]args){
-        // Creates the window.
-        TicTacToe gui = new TicTacToe();
+        // Creates a scanner for user input
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Player 1 starts: Press 1-9.");
+        int player1 = scan.nextInt();
+        
+        switch(player1){
+            case 1: gameBoard[0][0] = 'X';
+                break;
+            case 2: gameBoard[0][2] = 'X';
+                break;
+            case 3: gameBoard[0][4] = 'X';
+                break;
+            case 4: gameBoard[2][0] = 'X';
+                break;
+            case 5: gameBoard[2][2] = 'X';
+                break;
+            case 6: gameBoard[2][4] = 'X';
+                break;
+            case 7: gameBoard[4][0] = 'X';
+                break;
+            case 8: gameBoard[4][2] = 'X';
+                break;
+            case 9: gameBoard[4][4] = 'X';
+                break;
+        }
+
+        drawBoard();
+        System.out.println("Player 2 turn: Press 1-9.");
+        int player2 = scan.nextInt(); 
+
+        switch(player2){
+            case 1: gameBoard[0][0] = 'O';
+                break;
+            case 2: gameBoard[0][2] = 'O';
+                break;
+            case 3: gameBoard[0][4] = 'O';
+                break;
+            case 4: gameBoard[2][0] = 'O';
+                break;
+            case 5: gameBoard[2][2] = 'O';
+                break;
+            case 6: gameBoard[2][4] = 'O';
+                break;
+            case 7: gameBoard[4][0] = 'O';
+                break;
+            case 8: gameBoard[4][2] = 'O';
+                break;
+            case 9: gameBoard[4][4] = 'O';
+                break;
+        }
+        drawBoard();
+        scan.close();
         
     }
 

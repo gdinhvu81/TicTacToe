@@ -20,6 +20,8 @@ It will loop until one player gets 3 in a row
     - Loop steps 3 and 4 and add a check to make sure spots havent been taken
 6. Add in a way to detect how players win. 
     -If player1 or player2 has a situation three in a row, print out that player wins.
+    -Win conditions 123,159,147,258,369,789
+    -Game ends when someone wins
 7. Also have to add in a check to make sure the spots havent been taken yet
     - Check to make sure there is no 'X' or 'O' in the spot. 
     - If there is, select another spot    

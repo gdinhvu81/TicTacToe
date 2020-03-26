@@ -1,22 +1,26 @@
 import java.util.Scanner;
 
 class TicTacToe{
+    // Create player variables
+    static int player1, player2;
+
     // Create gameboard
-    public static char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
-                                        {'-', '+', '-', '+', '-'},
-                                        {' ', '|', ' ', '|', ' '},
-                                        {'-', '+', '-', '+', '-'},
-                                        {' ', '|', ' ', '|', ' '}};  
+    static char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
+                                 {'-', '+', '-', '+', '-'},
+                                 {' ', '|', ' ', '|', ' '},
+                                 {'-', '+', '-', '+', '-'},
+                                 {' ', '|', ' ', '|', ' '}};  
     public static void main(String[]args){
         // Creates a scanner for user input
         Scanner scan = new Scanner(System.in);
         int counter = 0;
 
         // Loops players to select spot until all empty spaces are taken
-        while(counter < 9){
+        while(counter < 9){     // 9 because there are only 9 spots on the board
             System.out.println("Player 1 starts: Press 1-9.");
-            int player1 = scan.nextInt();
+            player1 = scan.nextInt();
         
+            // Creates an 'X' for player1 on the board based player1 input
             switch(player1){
                 case 1: gameBoard[0][0] = 'X';
                     break;
@@ -38,12 +42,15 @@ class TicTacToe{
                     break;
             }
             drawBoard();
+            checkWin();
             counter++;
 
+            // As long as there are still spaces on the board, player2 gets to go.
             while(counter < 9){
                 System.out.println("Player 2 turn: Press 1-9.");
-                int player2 = scan.nextInt(); 
+                player2 = scan.nextInt(); 
 
+                // Creates an 'O' on the board based on player2 input
                 switch(player2){
                     case 1: gameBoard[0][0] = 'O';
                         break;
@@ -65,6 +72,7 @@ class TicTacToe{
                         break;
                 }
                 drawBoard();
+                checkWin();
                 counter++;
                 break;
             }
@@ -80,5 +88,31 @@ class TicTacToe{
             }
             System.out.println();
         }
+    }
+
+    // Method to check if player wins.
+    public static void checkWin(){
+        if((gameBoard[0][0] == 'X' && gameBoard[0][2] == 'X' && gameBoard[0][4] == 'X') ||  // Checks if 'X' is in 1,2,3 positions
+           (gameBoard[0][0] == 'X' && gameBoard[2][2] == 'X' && gameBoard[4][4] == 'X') ||  // Checks if 'X' is in 1,5,9 positions
+           (gameBoard[0][0] == 'X' && gameBoard[2][0] == 'X' && gameBoard[4][0] == 'X') ||  // Checks if 'X' is in 1,4,7 positions
+           (gameBoard[0][2] == 'X' && gameBoard[2][2] == 'X' && gameBoard[4][2] == 'X') ||  // Checks if 'X' is in 2,5,8 positions
+           (gameBoard[0][4] == 'X' && gameBoard[2][2] == 'X' && gameBoard[4][0] == 'X') ||  // Checks if 'X' is in 3,5,7 positions
+           (gameBoard[0][4] == 'X' && gameBoard[2][4] == 'X' && gameBoard[4][4] == 'X') ||  // Checks if 'X' is in 3,6,9 positions
+           (gameBoard[2][0] == 'X' && gameBoard[2][2] == 'X' && gameBoard[2][4] == 'X') ||  // Checks if 'X' is in 4,5,6 positions
+           (gameBoard[4][0] == 'X' && gameBoard[4][2] == 'X' && gameBoard[4][4] == 'X')){   // Checks if 'X' is in 7,8,9 positions
+            System.out.println("Player1 Wins");
+            System.exit(); 
+        }
+        else if((gameBoard[0][0] == 'O' && gameBoard[0][2] == 'O' && gameBoard[0][4] == 'O') ||  // Checks if 'O' is in 1,2,3 positions
+                (gameBoard[0][0] == 'O' && gameBoard[2][2] == 'O' && gameBoard[4][4] == 'O') ||  // Checks if 'O' is in 1,5,9 positions
+                (gameBoard[0][0] == 'O' && gameBoard[2][0] == 'O' && gameBoard[4][0] == 'O') ||  // Checks if 'O' is in 1,4,7 positions
+                (gameBoard[0][2] == 'O' && gameBoard[2][2] == 'O' && gameBoard[4][2] == 'O') ||  // Checks if 'O' is in 2,5,8 positions
+                (gameBoard[0][4] == 'O' && gameBoard[2][2] == 'O' && gameBoard[4][0] == 'O') ||  // Checks if 'O' is in 3,5,7 positions
+                (gameBoard[0][4] == 'O' && gameBoard[2][4] == 'O' && gameBoard[4][4] == 'O') ||  // Checks if 'O' is in 3,6,9 positions
+                (gameBoard[2][0] == 'O' && gameBoard[2][2] == 'O' && gameBoard[2][4] == 'O') ||  // Checks if 'O' is in 4,5,6 positions
+                (gameBoard[4][0] == 'O' && gameBoard[4][2] == 'O' && gameBoard[4][4] == 'O')){   // Checks if 'O' is in 7,8,9 positions
+                System.out.println("Player2 Wins");
+        }
+        else return;
     }
 }
